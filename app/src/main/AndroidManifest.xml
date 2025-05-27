@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permission for posting notifications -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DailyPlannerPro"
+        tools:targetApi="31">
+
+        <!-- MainActivity Declaration -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.DailyPlannerPro">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- AddTaskActivity Declaration -->
+        <activity
+            android:name=".AddTaskActivity"
+            android:exported="true"
+            android:label="Add Task"
+            android:theme="@style/Theme.DailyPlannerPro" />
+
+        <!-- TimerActivity Declaration -->
+        <activity
+            android:name=".TimerActivity"
+            android:exported="true"
+            android:label="Timer/Stopwatch"
+            android:theme="@style/Theme.DailyPlannerPro" />
+
+        <!-- ReminderActivity Declaration -->
+        <activity
+            android:name=".ReminderActivity"
+            android:exported="true"
+            android:label="Reminder"
+            android:theme="@style/Theme.DailyPlannerPro" />
+
+        <!-- TaskDetailActivity Declaration -->
+        <activity
+            android:name=".TaskDetailActivity"
+            android:exported="true"
+            android:label="Task Details"
+            android:theme="@style/Theme.DailyPlannerPro" />
+
+        <!-- TaskWidgetProvider Declaration -->
+        <receiver
+            android:name=".TaskWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/task_widget_info" />
+        </receiver>
+
+        <!-- ReminderReceiver Declaration -->
+        <receiver
+            android:name=".ReminderReceiver"
+            android:exported="true"
+            android:enabled="true">
+        </receiver>
+
+    </application>
+</manifest>
